@@ -1,0 +1,256 @@
+
+
+/*spacing*/
+.space{
+margin-top: 450px;
+}
+
+/*event heading*/
+
+.heading{
+text-align: center;
+border: 3px solid rgb(22, 0, 166) ;
+color:rgb(255, 255, 255);
+background-color:#0d0097;
+height:50;
+padding:30px;
+border-radius: 10px;
+}
+.icon{
+  width: 200px;
+  float:left;
+  height:70px;
+}
+@media(max-width:400px){
+  .icon{
+    width: 100px;
+    float:left;
+    height:35px;
+}}
+.logo{
+color: rgb(214, 213, 213);
+font-size: 35px;
+font-family: Arial;
+padding-left: 20px;
+float: left;
+padding-top: 10px;
+}
+@media(max-width:400px){
+  .logo{
+    color: rgb(214, 213, 213);
+    font-size: 15px;
+    font-family: Arial;
+    padding-left: 10px;
+    float: left;
+    padding-top: 5px;
+  }}
+/*style of the title bar */
+nav {
+position: fixed;
+top: 0px;
+margin-left:0px;
+width: 100%;
+height:165px;  
+background-color:rgb(0, 36, 113);
+border-radius: 10px;
+background-color:rgb(0, 36, 113);
+  
+}
+@media(max-width:400px){
+  nav {
+    position:fixed;
+    top: 10px;
+    margin-left:0px;
+    width: 95%;
+    height:130px;  
+    background-color:rgb(0, 36, 113);
+    border-radius: 5px;
+    background-color:rgb(0, 36, 113);
+      
+   }}
+
+nav a {
+text-decoration: none;
+color:#ffffff ;
+}
+
+nav li {
+text-align: right;
+display: inline-block;
+padding: 10px 20px;
+background-color:rgb(36, 0, 144);
+color: white;
+text-decoration: none;
+border:3px solid rgb(255, 255, 255);
+border-radius: 5px;
+cursor: pointer;
+}
+@media(max-width:400px){
+  nav li {
+    text-align: right;
+    display: inline-block;
+    padding: 3px 7px;
+    background-color:rgb(36, 0, 144);
+    color: white;
+    text-decoration: none;
+    border:3px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    cursor: pointer;
+   }
+  }
+nav li:hover {
+background-color:rgb(55, 52, 52);
+}
+
+/*dividing the html page into 2*/
+
+.content{
+color: #ffffff;
+background-image: url("image15.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 20px;
+display: flex;
+justify-content: space-between;
+width: 100%;
+}
+@media(max-width:400px){
+  .content{
+    color: #ffffff;
+    background-image: url("image15.jpg");
+    background-size:550px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+  }}
+.left-side{
+text-align: center;
+flex: 1;
+}
+.right-side{
+flex: 1;
+text-align: center;
+}
+
+
+/* style of the logo */
+.custom-image{
+  width: 270px;
+  height: 100px;
+  }
+  @media(max-width:400px){
+    .custom-image{
+      width: 130px;
+      height: 50px;
+      }}
+/*menu bar position*/
+.upper {
+  text-align:center; /* Align text and inline elements to the right */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+/*event bar style*/
+.event-upper{
+  margin-top: 10px;
+  text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+ }
+
+
+/*event 1 Background image*/ 
+body {
+  background-image: url("image11.jpg");
+  background-size: cover; /* Adjust to your preference */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.space{
+
+text-align: center;
+color: #000d86;
+font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+/*paragraph style*/
+P{
+  text-align: center;
+  color: hsl(0, 0%, 97%);
+  font-family:Arial, Helvetica, sans-serif
+}
+@media(max-width:400px){
+  P{
+    font-size: 15px;
+    text-align: center;
+    color: hsl(0, 0%, 97%);
+    font-family:Arial, Helvetica, sans-serif
+   
+  }}
+/*right align the images*/
+
+.r-align{
+text-align: right;
+}
+
+/*image size*/
+img{
+width: 500px;
+height:auto;
+}
+@media(max-width:400px){
+  img{
+    width:100px;
+    height:auto;
+  }}
+
+.l-align{
+text-align:left;
+width: 400px;
+}
+
+
+#contact {
+  background-color: #ecececd3; /* Background color */
+  padding: 20px; /* Add padding to the section */
+}
+
+#contact h2 {
+  color: #463737; /* Heading color */
+}
+
+#contact p {
+  color: #666; /* Paragraph text color */
+}
+
+#contact address {
+  font-style: normal; /* Remove italic font style from the address tag */
+}
+
+#contact a {
+  color: #03448b; /* Link color */
+  text-decoration: none; /* Remove underlines from links */
+}
+
+#contact a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style for the footer */
+footer {
+  background-color: #100062; /* Background color */
+  color: #403232; /* Text color */
+  text-align: center; /* Center-align text */
+  padding: 20px 0; /* Add some padding to the top and bottom */
+}
+
+/* Style anchor links inside the footer */
+footer a {
+  color: #040075; /* Link color */
+  text-decoration: none; /* Remove underlines from links */
+}
+
+/* Style anchor links on hover */
+footer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
