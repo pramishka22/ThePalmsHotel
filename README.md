@@ -1,0 +1,2 @@
+# ThePalmsHotel
+Individual Assignment
