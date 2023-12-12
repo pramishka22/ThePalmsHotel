@@ -30,8 +30,6 @@ let currentBookingPrice = 0;
 let overallBookingPrice = 0;
 
 // Extra Requirements
-function extraRequirements(){
-  this.name = "";
 if (wifi.checked) {
   extraRequirements.push(" WiFi");
 } else if ((wifi.checked = false)) {
@@ -49,7 +47,7 @@ if (gardenView.checked) {
 } else if ((gardenView.checked = false)) {
   extraRequirements.pop(" Garden View");
 }
-}
+
 function calculateBooking() {
   // Calculate The Booking Price
   const singleRoomValue = 25000;
@@ -78,7 +76,8 @@ bookingForm.addEventListener("submit", function (event) {
 });
 
 bookBtn.addEventListener("click", async function() {
-   calculateBooking()
+  debugger;
+  await calculateBooking()
   bookingDetailsDiv.innerHTML =
     "<p>Room Type: " +
     roomType.value +
@@ -121,7 +120,7 @@ checkLoyaltyBtn.addEventListener("click", function () {
 });
 
 addToFavBtn.addEventListener("click", function () {
-	
+	debugger
   overallBookingDiv.innerHTML += bookingDetailsDiv.innerHTML;
   localStorage.setItem("overallBookingDiv", overallBookingDiv.innerHTML);
   localStorage.setItem(
