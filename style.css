@@ -5,7 +5,7 @@
 }
 
 .main{
-     width: 100;
+     width: auto;
      background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%,rgba(0, 0, 0, 0.5)50%),url('image1.jpeg');
      background-position: center;
      background-size: cover;
@@ -13,6 +13,7 @@
   
   
   }
+
   .nav{
     width: 1200;
     height:75px;
@@ -405,7 +406,7 @@ body, h1, h2, p, ul, li {
     padding: 0;
 }
 .main3{
-    width: auto;
+    width: 100;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%,rgba(0, 0, 0, 0.5)50%),url('image3.jpeg');
     background-position: center;
     background-size:cover;
@@ -655,88 +656,163 @@ header {
 body, h1, h2, p, ul, li, form, label, input, select, button {
     margin: 0;
     padding: 0;
-}
-.main7{
+  }
+  .main7{
     width: 100;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%,rgba(0, 0, 0, 0.5)50%),url('bookings.jpg');
     background-position: center;
     background-size: cover;
     height: 70vh;
- 
- 
-}
-body, h1, h2, p, ul, li, form, label, input, select, textarea, button {
+  
+  
+  }
+  body, h1, h2, p, ul, li, form, label, input, select, textarea, button {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-}
-
-body {
-    background-color:#fff87b;
-}
-
-header {
+  }
+  
+  body {
+    background-color:#efb003aa;
+  }
+  
+  header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
-}
-
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline;
+  }
+  
+  nav ul {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display:inline;
     margin-right: 20px;
-}
-
-.booking {
+  } 
+  
+  .booking {
     text-align: center;
     padding: 50px 0;
-}
-
-.booking-form {
-    max-width: 400px;
-    margin: 0 auto;
+  }
+  
+  
+  
+  
+   /* Reset some default styles */
+  body, h1, h2, p, form {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply a background color to the body */
+  body {
+    background-color: #c7c7c7;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Style the form container */
+  #bookingForm {
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
+    background-color: #bab7a8c9;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style form labels */
+  label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="date"],
-select,
-textarea {
-    width: 90%;
+  }
+  
+  /* Style form inputs and select */
+  input,
+  select,
+  button {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 4px;
-}
-
-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+  
+  /* Style checkboxes in a row */
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  /* Style the Loyalty Points and Booking Details sections */
+  h1 {
+    margin-top: 30px;
+  }
+  
+  /* Add styles for Loyalty Points and Booking Details content */
+  #loyaltyPoints,
+  #bookingDetails,
+  #currentBookingPrice,
+  #overallBooking,
+  #overallBookingPrice {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add some spacing to buttons */
+  button {
+    margin-right: 5px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media only screen and (max-width: 768px) {
+    #bookingForm {
+      max-width: 100%;
+    }
+  }
+  #contact {
+    background-color: #eee075d3; 
+    padding: 20px; /* Add padding to the section */
+  }
+  
+  #contact h2 {
+    color: #463737; /* Heading color */
+  }
+  
+  #contact p {
+    color: #666; 
+  }
+  
+  #contact address {
+    font-style: normal; 
+  }
+  
+  #contact a {
+    color: #03448b; /* Link color */
+    text-decoration: none; /* Remove underlines from links */
+  }
+  
+  #contact a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  footer {
+    background-color: #f0f8a7; /* Background color */
+    color: #403232; /* Text color */
+    text-align: center; /* Center-align text */
+    padding: 20px 0; 
+  }
+  
+  
+  footer a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Remove underlines from links */
+  }
+  
+  
+  footer a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
