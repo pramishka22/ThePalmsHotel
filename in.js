@@ -89,7 +89,7 @@ resetCurrentBookingBtn.addEventListener("click", function () {
 });
 
 checkLoyaltyBtn.addEventListener("click", function () {
-	if (numberOfRooms.value >= 3) {
+	if (numberOfRooms.value >= 4) {
 		loyaltyPoints = 20*numberOfRooms.value;
 	} else if (numberOfRooms.value < 3) {
 		loyaltyPoints = 'No Loyalty Points';
