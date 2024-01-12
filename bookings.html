@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,90 +28,139 @@
 
 <body>
 
-	<form id="bookingForm" method="post">
-
-		<label>Room Type</label>
-		<select id="roomType">
-			<option value="Single">Single</option>
-			<option value="Double">Double</option>
-			<option value="Triple">Triple</option>
-		</select>
-		<br>
-
-		<label>Number of Rooms</label>
-		<input type="number" id="numberOfRooms" min="1">
-		<br>
-
-		<label>Check In</label>
-		<input type="date" id="checkIn">
-		<br>
-
-		<label>Check Out</label>
-		<input type="date" id="checkOut">
-		<br>
-
-		<label>Number of Adults</label>
-		<input type="number" id="numberOfAdults" min="1">
-		<br>
-
-		<label>Number of Children</label>
-		<input type="number" id="numberOfChildren" min="0">
-		<br>
-
-		<label>Time Duration</label>
-		<select id="timeDuration">
-			<option value="1">1 day</option>
-			<option value="2">2 days</option>
-			<option value="3">3 days</option>
-			<option value="4">4 days</option>
-			<option value="5">5 days</option>
-			<option value="6">6 days</option>
-			<option value="7">7 days</option>
-		</select>
-		<br>
-
-		<label>Extra Requirements :</label>
-
-		<input type="checkbox" id="wifi" name="wifi" value="WiFi">WiFi
-		<input type="checkbox" id="poolView" name="poolView" value="Pool View">Pool View
-		<input type="checkbox" id="gardenView" name="gardenView" value="Garden View">Garden View
-		<input type="checkbox" id="extraBed" name="extraBed" value=" Extra Bed">Extra Bed
-		<br><br>
-
-		<input type="text" id="promoCode" placeholder="Promo Code">
-		<button type="submit" id="bookBtn">Book Now</button>
-		<button type="button" id="currentBookingResetBtn">Reset Current Booking</button>
-
-		<br><br>
-
-		<button type="button" id="checkLoyaltyBtn">Check Loyalty Points</button>
-
-	</form>
-
-
 	
-	<h1>Loyalty Points:</h1>
-	<div id="loyaltyPoints"></div>
+    
+    <nav>
+      <div class="navbar">
+        <div class="container nav-container">
+          
+          <div class="hamburger-lines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+          </div>
+         
+          
+        </div>
+      </div>
+    </nav>
+    <nav class="nav">
+     
+      
+    </nav>
+    <div class="nav-background"></div>
+    
+    <form id="bookingForm">
+      
+      <h2>Customer Info</h2>
+      <label for="name">Your name: </label>
+      <input type="text" id="name" name="name" required />
 
+     
+      <h2>Room Booking</h2>
 
-	<h1>Current Booking Details:</h1>
-	<div id="bookingDetails"></div>
-	<button type="button" id="addToFavoriteBtn">Add to Favorites</button>
+      <!-- Dropdown to choose room type -->
+      <label for="roomType">Choose Room Type:</label>
+      <select id="roomType" name="roomType">
+        <option value="defaultRoom">Select Room</option>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="triple">Triple</option>
+      </select>
 
-	
-	<h1>Cost of the Current Booking (LKR):</h1>
-	<div id="currentBookingPrice"></div>
+      
+      <label for="numRooms">Number of Rooms:</label>
+      <input type="number" id="numRooms" name="numRooms" min="1" required />
 
-	
-	<h1>Overall Booking:</h1>
-	<div id="overallBooking"></div>
+      <label for="numAdults">Number of Adults:</label>
+      <input type="number" id="numAdults" name="numAdults" min="1" required />
 
+      <label for="numChildren">Number of Children:</label>
+      <input
+        type="number"
+        id="numChildren"
+        name="numChildren"
+        min="0"
+        required
+      />
 
-	<h1>Overall Booking Price (LKR):</h1>
-	<div id="overallBookingPrice"></div>
+      
+      <label for="checkInDate">Check-In Date:</label>
+      <input type="date" id="checkInDate" name="checkInDate" required />
 
+      <label for="duration">Duration of Stay (in days):</label>
+      <input type="number" id="duration" name="duration" min="1" required />
 
-	<script src="main.js"></script>
+      <!-- Dropdown to choose the view -->
+      <label for="view">Choose View:</label>
+      <select id="view" name="view">
+        <option value="pool">Pool View</option>
+        <option value="garden">Garden View</option>
+      </select>
+
+      
+      <label for="wifi">Need WiFi:</label>
+      <input type="checkbox" id="wifi" name="wifi" />
+
+      <label for="extraBed">Extra bed:</label>
+      <input type="checkbox" id="extraBed" name="extraBed" />
+
+     
+      <label for="promoCode">Enter Promo Code:</label>
+      <input type="text" id="promoCode" name="promoCode" />
+      <button type="button" id="applyCode">Apply Code</button>
+
+      
+      <button type="button" id="bookRoom">Book Room</button>
+
+      
+      <h2>Adventure Booking</h2>
+
+      
+      <label for="adventureType">Choose Adventure Type:</label>
+      <select id="adventureType" name="adventureType">
+        <option value="defaultAdventure">Select Adventure</option>
+        <option value="localAdult">Diving for Local Adults</option>
+        <option value="localKids">Diving for Local Kids</option>
+        <option value="foreignAdult">Diving for Foreign Adults</option>
+        <option value="foreignKids">Diving for Foreign Kids</option>
+      </select>
+
+      
+      <label for="guide">Need a Guide:</label>
+      <input type="checkbox" id="guide" name="guide" />
+
+      <button type="button" id="bookAdventure">Book Adventure</button>
+
+      <!-- Loyalty Points Section -->
+      <h2>Loyalty Points</h2>
+      <button type="button" id="loyaltyCheck">Check Loyalty Points</button>
+      <p>
+        (Book before checking)<br />
+        Loaylty Points on this order: <span id="loyaltyPoints">0</span> Pts.
+      </p>
+
+      <!-- Display Section -->
+      <h2>Booking Information</h2>
+
+      <div id="currentBooking">
+        <p>Cost of Current Booking: <span id="currentCost"></span></p>
+      </div>
+      <div id="overallBooking">
+        <p>Overall Booking: <span id="overallBookingNumber"></span></p>
+        <p>Overall Cost of: <span id="overallBookingCost"></span> LKR</p>
+      </div>
+
+      
+      <button type="button" id="confirmOrder">Confirm Order</button>
+      <button type="button" id="favourite">Add to favourites</button>
+    </form>
+   
+  
+  </body>
+</html>
+
+	<script src="jk.js"></script>
   <section id="contact">
     <h2>Contact Us</h2>
     <p>For inquiries and reservations, please contact us:</p>
