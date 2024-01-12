@@ -62,10 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         totalCost += 5000;
       }
   
-      if (wifi.checked) {
-        totalCost += 5000;
-      }
-  
+      
       if (extraBed.checked) {
         totalCost += 8000;
       }
