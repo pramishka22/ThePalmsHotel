@@ -1,20 +1,25 @@
-
+// When the DOM has fully loaded, execute the following code
 document.addEventListener('DOMContentLoaded', function () {
-   
+    // Get form element
     const bookingForm = document.getElementById('bookingForm');
   
-    
+    // Buttons for booking rooms and adventures
     const bookRoomBtn = document.getElementById('bookRoom');
     const bookAdventureBtn = document.getElementById('bookAdventure');
   
-    
+    // Buttons for confirming orders, checking loyalty, applying promo codes, and marking as a favorite
     const confirmOrderBtn = document.getElementById('confirmOrder');
     const loyaltyCheckBtn = document.getElementById('loyaltyCheck');
     const applyCodeBtn = document.getElementById('applyCode');
     const favouriteBtn = document.getElementById('favourite');
+  
+    //PromoCode input field
     const promoCode = document.getElementById('promoCode');
+  
+    //input field for user name
     const userName = document.getElementById('name');
   
+    // Input fields for room bookings
     const numOfRooms = document.getElementById('numRooms');
     const numOfAdults = document.getElementById('numAdults');
     const numOfChildren = document.getElementById('numChildren');
@@ -25,15 +30,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const wifi = document.getElementById('wifi');
     const extraBed = document.getElementById('extraBed');
   
+    // Input fields for adventure bookings
     const adventureType = document.getElementById('adventureType');
     const needGuide = document.getElementById('guide');
   
+    // Display elements for current cost, loyalty points, overall booking number, and overall booking cost
     const currentCost = document.getElementById('currentCost');
     const loyaltyPoints = document.getElementById('loyaltyPoints');
     const overallBookingNumberElement = document.getElementById('overallBookingNumber');
     const overallBookingCostElement = document.getElementById('overallBookingCost');
   
-    
+    //Initialization
+    // Overall booking information
     let overallBookingNumber = 0;
     let overallBookingCost = 0;
     let checkInDateStored = '';
@@ -41,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function () {
     overallBookingCostElement.innerText = overallBookingCost;
     currentCost.innerText = 0;
   
-    
+    // Flag to track whether a promo code has been applied
     let promoApplied = false;
   
-   
+    // Object to store overall booking details
     let overallBookingDetails = {
       Bookings: {
         rooms: [],
@@ -54,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       userName: '',
     };
   
-    
+    // Helper function to get room cost
     function calculateRoomCost() {
       let totalCost = 0;
       totalCost += getRoomCost() * numOfRooms.value * durationOfStay.value;
@@ -62,12 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
         totalCost += 5000;
       }
   
-      
+      if (wifi.checked) {
+        totalCost += 5000;
+      }
+  
       if (extraBed.checked) {
         totalCost += 8000;
       }
   
-      
+      // Ensure the total cost is a valid number
       if (typeof totalCost === 'number') {
         return totalCost;
       } else {
@@ -75,13 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   
-    
+    // Helper function to get adventure cost
     function calculateAdventureCost() {
       const selectedOptionValue = adventureType.value;
   
       let cost = 0;
   
-      
+      // Switch statement to calculate adventure cost based on selected option
       switch (selectedOptionValue) {
         case 'localAdult':
           cost += 5000.0;
@@ -96,11 +107,11 @@ document.addEventListener('DOMContentLoaded', function () {
           cost += 5000.0;
           break;
         default:
-          cost += 0.0; 
+          cost += 0.0; // Default value
           break;
       }
   
-      // If a guide is needed
+      // If a guide is needed, add additional cost
       if (needGuide.checked) {
         switch (selectedOptionValue) {
           case 'localAdult':
@@ -116,20 +127,20 @@ document.addEventListener('DOMContentLoaded', function () {
             cost += 500.0;
             break;
           default:
-            cost += 0.0; 
+            cost += 0.0; // Default value
             break;
         }
       }
       return cost;
     }
   
-    
+    // Helper function to get room cost based on the selected room type
     function getRoomCost() {
       const selectedOptionValue = roomType.value;
   
       let cost = 0;
   
-      
+      // Switch statement to calculate room cost based on the selected room type
       switch (selectedOptionValue) {
         case 'single':
           cost += 25000.0;
@@ -141,19 +152,19 @@ document.addEventListener('DOMContentLoaded', function () {
           cost += 40000.0;
           break;
         default:
-          cost += 0.0; 
+          cost += 0.0; // Default value
           break;
       }
   
       return cost;
     }
   
-    
+    // Helper function to check if the selected rooms can accommodate the specified number of adults
     function checkRoomCapacity() {
       let roomValue = 0;
   
       console.log(roomValue);
-      
+      // Switch statement to determine the capacity of the selected room type
       switch (roomType.value) {
         case 'single':
           roomValue += 1;
@@ -165,26 +176,30 @@ document.addEventListener('DOMContentLoaded', function () {
           roomValue += 3;
           break;
         default:
-          roomValue += 0.0; 
+          roomValue += 0.0; // Default value
           break;
       }
   
       let totalRoomValue = roomValue * numOfRooms.value;
   
-      
+      // Adjust room value if an extra bed is requested
       if (extraBed.checked) {
         totalRoomValue += 1;
       }
-      
+      // Check if the total room capacity is sufficient for the specified number of adults
       return totalRoomValue >= numOfAdults.value;
     }
   
-    
+    // Helper function to update the current cost based on room and adventure costs
     function updateCurrentCost() {
+      // Calculate the total cost of rooms and adventures
       let curCost = calculateRoomCost() + calculateAdventureCost();
+  
+      // Apply a 5% discount if a promo code has been applied
       if (promoApplied) {
         curCost -= curCost * 0.05;
       }
+      // Update the current cost display
       currentCost.innerText = curCost;
     }
   
@@ -216,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
       overallBookingCostElement.innerText = overallBookingCost;
     }
   
-    
+    // Helper function to calculate the total number of rooms across all bookings
     function checkTotalRooms() {
       const roomsArray = overallBookingDetails.Bookings.rooms;
       let totalRooms = 0;
@@ -300,8 +315,10 @@ document.addEventListener('DOMContentLoaded', function () {
       alert(`Your booking has been saved, proceed to confirm order once you are done.
       `);
       
+      // Reset room-related fields
       resetRoomFields();
   
+      // Update the current cost display
       updateCurrentCost();
     });
   
@@ -313,20 +330,22 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
   
-      
+      // Calculate the cost of the adventure
       let cost = calculateAdventureCost();
+  
+      // Apply a 5% discount if a promo code has been applied
       if (promoApplied) {
         cost -= cost * 0.05;
       }
   
-      
+      // Create an adventure object with booking details
       const adventure = {
         adventureType: adventureType.value,
         needGuide: needGuide.checked,
         cost,
       };
   
-      
+      // Display a confirmation alert for booking
       alert(`Your booking has been saved, proceed to confirm order once you are done.
       `);
   
@@ -335,25 +354,28 @@ document.addEventListener('DOMContentLoaded', function () {
       overallBookingNumber++;
       overallBookingCost += calculateAdventureCost();
   
-      
+      // Update booking display
       overallBookingNumberElement.innerText = overallBookingNumber;
       overallBookingCostElement.innerText = overallBookingCost;
       // Reset adventure-related fields
       needGuide.checked = false;
       adventureType.value = 'defaultAdventure';
   
-      
+      // Update the current cost display
       updateCurrentCost();
     });
   
-    
+    // Event listener for "Apply Code" button
     applyCodeBtn.addEventListener('click', function () {
+      // Check if the entered promo code is valid
       if (promoCode.value === 'Promo123') {
         let cost = calculateAdventureCost() + calculateRoomCost();
         cost -= cost * 0.05;
   
-       
+        // Update the current cost display with the discounted price
         currentCost.innerText = cost;
+  
+        // Set the promoApplied flag to true
         promoApplied = true;
   
         alert(`Your code is applied, Please continue with your booking.
@@ -364,10 +386,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   
-    
+    // Event listener for "Check Loyalty" button
     loyaltyCheckBtn.addEventListener('click', function () {
-      
+      // Check if the total number of booked rooms is greater than 3
       if (checkTotalRooms() > 3) {
+        // Update the loyalty points display
         loyaltyPoints.innerText = checkTotalRooms() * 20;
       }else{
         alert(`You need to book 4 or more rooms to gain loyalty points.
@@ -377,27 +400,29 @@ document.addEventListener('DOMContentLoaded', function () {
   
     // Event listener for "Add to Favorites" button
     favouriteBtn.addEventListener('click', function () {
+      // Check if the user name is provided
       if (userName.value === '') {
         alert('Please input your name');
         return;
       }
       overallBookingDetails.userName = userName.value;
+      // Store the overall booking details in the local storage as a favorite
       localStorage.setItem('FavBooking', JSON.stringify(overallBookingDetails));
       
-      
+      // Display a confirmation alert for saving to favourites
       alert(`Your order has been addded to favourites, proceed to confirm order once you are done.
       `);
     });
   
     // Event listener for "Confirm Order" button
     confirmOrderBtn.addEventListener('click', function () {
-      
+      // Check if the user name is provided
       if (userName.value === '') {
         alert('Please input your name');
         return;
       }
   
-      
+      // Display a confirmation alert with order details
       alert(`Thank you for your booking ${userName.value}!!
       --Order Details--
       Number of Bookings: ${overallBookingNumber}.
@@ -414,4 +439,3 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener for any changes within the booking form
     bookingForm.addEventListener('input', updateCurrentCost);
   });
-  
